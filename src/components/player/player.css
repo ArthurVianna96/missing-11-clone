@@ -1,0 +1,42 @@
+.player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.shirt-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.shirt {
+  max-width: 80px;
+}
+
+.number-of-tries {
+  position: absolute;
+  transform: translate(2px,-8px);
+  font-size: 2.8rem;
+  color: white;
+}
+
+.player-name-length {
+  position: absolute;
+  transform: translate(0px, 35px);
+  background-color: antiquewhite;
+  width: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.player-name {
+  font-size: 1.5rem;
+  color: antiquewhite;
+  margin-top: 5px;
+  background-color: transparent;
+  text-align: center;
+  border: none;
+}
