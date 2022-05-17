@@ -16,20 +16,20 @@
 }
 
 .shirt {
-  max-height: 80px;
+  max-height: 100px;
   width: 100%;
 }
 
 .number-of-tries {
   position: absolute;
-  transform: translate(2px,-8px);
+  transform: translate(1px,-8px);
   font-size: 2.8rem;
   color: white;
 }
 
 .player-name-length {
   position: absolute;
-  transform: translate(0px, 35px);
+  transform: translate(0px, 45px);
   background-color: antiquewhite;
   width: 30px;
   border-radius: 10px;
@@ -39,7 +39,7 @@
 .player-name {
   font-size: 1.5rem;
   color: antiquewhite;
-  margin-top: 5px;
+  margin-top: 10px;
   background-color: transparent;
   text-align: center;
   border: none;
@@ -51,12 +51,12 @@
   }
 
   .number-of-tries {
-    transform: translate(0px,-6px);
+    transform: translate(1px,-5px);
     font-size: 2.3rem;
   }
 
   .player-name-length {
-    transform: translate(0px, 30px);
+    transform: translate(-1px, 30px);
     width: 30px;
     font-size: 0.9rem;
   }

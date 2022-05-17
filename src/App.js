@@ -9,9 +9,6 @@ function App() {
     players: [['courtois'], ['carvajal', 'militao', 'alaba', 'marcelo'], ['kroos', 'casemiro', 'modric'], ['rodrygo', 'benzema', 'vini jr']]
   }
   
-  const formationSplit = data.formation.split('-');
-  const numberOfRows = formationSplit.length;
-
   return (
     <div className="App">
       <Header />
