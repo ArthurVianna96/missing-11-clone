@@ -1,1 +1,16 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
+.pitch {
+  background-image: url('../images/pitch.svg');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  height: calc(100vh - 80px);
+  width: 100%;
+}
