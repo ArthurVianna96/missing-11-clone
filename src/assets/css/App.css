@@ -13,4 +13,26 @@
   background-position-y: 50%;
   height: calc(100vh - 80px);
   width: 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.players {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
+  width: 100%;
+  height: 90%;
+}
+
+.players-row {
+  display: flex;
+  align-items:  flex-start;
+  justify-content: space-between;
+  width: 100%;
 }

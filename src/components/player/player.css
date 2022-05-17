@@ -3,17 +3,21 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
 }
 
 .shirt-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 1;
   position: relative;
 }
 
 .shirt {
-  max-width: 80px;
+  max-height: 80px;
+  width: 100%;
 }
 
 .number-of-tries {
@@ -39,4 +43,30 @@
   background-color: transparent;
   text-align: center;
   border: none;
+}
+
+@media screen and (max-width: 500px) {
+  .shirt {
+    max-height: 65px;
+  }
+
+  .number-of-tries {
+    transform: translate(0px,-6px);
+    font-size: 2.3rem;
+  }
+
+  .player-name-length {
+    transform: translate(0px, 30px);
+    width: 30px;
+    font-size: 0.9rem;
+  }
+  
+  .player-name {
+    font-size: 1.2rem;
+    color: antiquewhite;
+    margin-top: 10px;
+    background-color: transparent;
+    text-align: center;
+    border: none;
+  }
 }
