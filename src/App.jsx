@@ -27,7 +27,7 @@ function App() {
       { id: 7, name: 'modric' },
       { id: 8, name: 'rodrygo' },
       { id: 9, name: 'benzema' },
-      { id: 10, name: 'vinijr' }],
+      { id: 10, name: 'vini jr' }],
   }
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function App() {
     setIsGameOver(players.every((player) => player.solved));
   }, [players])
 
-  console.log(isGameOver);
+  // console.log(isGameOver);
 
   const receiveSelectedPlayer = (player) => {
     setSelectedPlayer(player);

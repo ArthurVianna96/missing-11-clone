@@ -48,12 +48,12 @@ const PlayerModal = ({ player: { name: playerName, id: playerId }, callback }) =
 
   const validateRow = () => {
     const receivedWord = board[currentAttempt.attempt].join('');
-    return receivedWord === playerName;
+    return receivedWord === playerName.split(' ').join('');
   }
 
   const onEnter = () => {
     const { letterPos, attempt } = currentAttempt;
-    if (letterPos !== playerName.length) return;
+    if (letterPos !== playerName.split(' ').join('').length) return;
     const receivedWord = board[attempt].join('');
     const guesses = players[playerId].guesses;
 
@@ -89,32 +89,43 @@ const PlayerModal = ({ player: { name: playerName, id: playerId }, callback }) =
   };
 
   useEffect(() => {
-    const numberOfLetters = playerName.length;
+    const numberOfLetters = playerName.split(' ').join('').length;
     const newBoard = generateWhiteBoard(numberOfLetters);
     setBoard(newBoard);
   }, []);
+
+  const letterFunc = (attemptValue) => {
+    let numberOfSpaces = 0;
+    return playerName.split('').map((letter, index) => {
+      if (letter === ' ') {
+        numberOfSpaces += 1;
+        return <div key={index}></div>
+      }
+      return <Letter key={index} currentAttempt={players[playerId].attempts} playerName={playerName} attemptValue={attemptValue} letterPos={index - numberOfSpaces} playerId={playerId} />
+    })
+  }
 
   return (
     <div className="modal">
       <button onClick={callback}>Voltar</button>
       <div className='attempts'>
         <div className="attempt-row">
-          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={players[playerId].attempts} playerName={playerName} attemptValue={0} letterPos={index} playerId={playerId}/>)}
+          {letterFunc(0)}
         </div>
         <div className="attempt-row">
-          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={players[playerId].attempts} playerName={playerName} attemptValue={1} letterPos={index} playerId={playerId}/>)}
+          {letterFunc(1)}
         </div>
         <div className="attempt-row">
-          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={players[playerId].attempts} playerName={playerName} attemptValue={2} letterPos={index} playerId={playerId}/>)}
+          {letterFunc(2)}
         </div>
         <div className="attempt-row">
-          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={players[playerId].attempts} playerName={playerName} attemptValue={3} letterPos={index} playerId={playerId}/>)}
+          {letterFunc(3)}
         </div>
         <div className="attempt-row">
-          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={players[playerId].attempts} playerName={playerName} attemptValue={4} letterPos={index} playerId={playerId}/>)}
+          {letterFunc(4)}
         </div>
         <div className="attempt-row">
-          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={players[playerId].attempts} playerName={playerName} attemptValue={5} letterPos={index} playerId={playerId}/>)}
+          {letterFunc(5)}
         </div>
       </div>
       <Keyboard callback={receiveSelectedLetter} onSelectLetter={onSelectLetter} onEnter={onEnter} onDelete={onDelete}/>
