@@ -11,6 +11,7 @@ export const AppContext = createContext();
 function App() {
   const [players, setPlayers] = useState([]);
   const [playersArray, setPlayersArray] = useState([]);
+  const [isGameOver, setIsGameOver] = useState(false);
   const [board, setBoard] = useState([[],[],[],[],[],[],[],[],[],[],[],[],[]]);
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const data = {
@@ -26,13 +27,19 @@ function App() {
       { id: 7, name: 'modric' },
       { id: 8, name: 'rodrygo' },
       { id: 9, name: 'benzema' },
-      { id: 10, name: 'vini jr' }],
+      { id: 10, name: 'vinijr' }],
   }
 
   useEffect(() => {
     setPlayersArray(parseDataForPitch(data));
     setPlayers(parseDataForStorage(data));
   }, []);
+
+  useEffect(() => {
+    setIsGameOver(players.every((player) => player.solved));
+  }, [players])
+
+  console.log(isGameOver);
 
   const receiveSelectedPlayer = (player) => {
     setSelectedPlayer(player);
