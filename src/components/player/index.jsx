@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 
+import { AppContext } from "../../App";
 import './player.css';
 import playerShirt from '../../assets/images/shirt.png';
 
-const Player = ({ playerName, callback, playerId, solved }) => {
+const Player = ({ playerName, callback, playerId }) => {
+  const { players } = useContext(AppContext);
   const [tries, setTries] = useState(null);
   const [shownText, setShownText] = useState('');
 
@@ -15,9 +17,8 @@ const Player = ({ playerName, callback, playerId, solved }) => {
   }
 
   useEffect(() => {
-    console.log(solved);
-    setShownText(solved ? playerName : transformNameToDots(playerName));
-  }, [solved, playerName]);
+    setShownText(players[playerId].solved ? playerName : transformNameToDots(playerName));
+  }, [players, playerName]);
 
   return (
     <div className="player" onClick={() => callback({ id: playerId,  name: playerName })}>
