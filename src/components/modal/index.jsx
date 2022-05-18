@@ -7,7 +7,7 @@ import Keyboard from "../keyboard";
 
 const PlayerModal = ({ player: { name: playerName, id: playerId }, callback }) => {
   const { board, setBoard, players, setPlayers } = useContext(AppContext);
-  const [currentAttempt, setCurrentAttempt] = useState({ attempt: 0, letterPos: 0 });
+  const [currentAttempt, setCurrentAttempt] = useState({ attempt: players[playerId].attempts, letterPos: 0 });
   
   const generateWhiteBoard = (numberOfLetters) => {
     const currentArray = [];
@@ -99,22 +99,22 @@ const PlayerModal = ({ player: { name: playerName, id: playerId }, callback }) =
       <button onClick={callback}>Voltar</button>
       <div className='attempts'>
         <div className="attempt-row">
-          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={currentAttempt} playerName={playerName} attemptValue={0} letterPos={index} playerId={playerId}/>)}
+          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={players[playerId].attempts} playerName={playerName} attemptValue={0} letterPos={index} playerId={playerId}/>)}
         </div>
         <div className="attempt-row">
-          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={currentAttempt} playerName={playerName} attemptValue={1} letterPos={index} playerId={playerId}/>)}
+          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={players[playerId].attempts} playerName={playerName} attemptValue={1} letterPos={index} playerId={playerId}/>)}
         </div>
         <div className="attempt-row">
-          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={currentAttempt} playerName={playerName} attemptValue={2} letterPos={index} playerId={playerId}/>)}
+          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={players[playerId].attempts} playerName={playerName} attemptValue={2} letterPos={index} playerId={playerId}/>)}
         </div>
         <div className="attempt-row">
-          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={currentAttempt} playerName={playerName} attemptValue={3} letterPos={index} playerId={playerId}/>)}
+          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={players[playerId].attempts} playerName={playerName} attemptValue={3} letterPos={index} playerId={playerId}/>)}
         </div>
         <div className="attempt-row">
-          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={currentAttempt} playerName={playerName} attemptValue={4} letterPos={index} playerId={playerId}/>)}
+          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={players[playerId].attempts} playerName={playerName} attemptValue={4} letterPos={index} playerId={playerId}/>)}
         </div>
         <div className="attempt-row">
-          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={currentAttempt} playerName={playerName} attemptValue={5} letterPos={index} playerId={playerId}/>)}
+          {playerName.split('').map((letter, index) => <Letter key={index} currentAttempt={players[playerId].attempts} playerName={playerName} attemptValue={5} letterPos={index} playerId={playerId}/>)}
         </div>
       </div>
       <Keyboard callback={receiveSelectedLetter} onSelectLetter={onSelectLetter} onEnter={onEnter} onDelete={onDelete}/>
