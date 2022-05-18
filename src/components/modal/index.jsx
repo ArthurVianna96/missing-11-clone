@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useCallback } from "react";
 import { AppContext } from "../../App";
 
 import './modal.css';
@@ -9,7 +9,7 @@ const PlayerModal = ({ player: { name: playerName, id: playerId }, callback }) =
   const { board, setBoard, players, setPlayers } = useContext(AppContext);
   const [currentAttempt, setCurrentAttempt] = useState({ attempt: players[playerId].attempts, letterPos: 0 });
   
-  const generateWhiteBoard = (numberOfLetters) => {
+  const generateWhiteBoard = useCallback((numberOfLetters) => {
     const currentArray = [];
     const allreadyGuessed = players[playerId].guesses;
     const numberOfFilledRows = allreadyGuessed ? allreadyGuessed.length : 0;
@@ -26,7 +26,7 @@ const PlayerModal = ({ player: { name: playerName, id: playerId }, callback }) =
       currentArray.push(rowArray);
     }
     return currentArray;
-  };
+  }, [playerId, players]);
 
   const onSelectLetter = (selectedLetter) => {
     const { attempt, letterPos } = currentAttempt;
@@ -92,7 +92,7 @@ const PlayerModal = ({ player: { name: playerName, id: playerId }, callback }) =
     const numberOfLetters = playerName.split(' ').join('').length;
     const newBoard = generateWhiteBoard(numberOfLetters);
     setBoard(newBoard);
-  }, []);
+  }, [generateWhiteBoard, playerName, setBoard]);
 
   const letterFunc = (attemptValue) => {
     let numberOfSpaces = 0;

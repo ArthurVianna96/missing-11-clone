@@ -1,12 +1,18 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Key from "../key";
 
 import './keyboard.css';
 
 const Keyboard = ({ callback, onEnter, onSelectLetter, onDelete }) => {
-  const keys1 = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
-  const keys2 = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
-  const keys3 = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
+  const [keys1, setKeys1] = useState([]);
+  const [keys2, setKeys2] = useState([]);
+  const [keys3, setKeys3] = useState([]);
+
+  useEffect(() => {
+    setKeys1(['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p']);
+    setKeys2(['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l']);
+    setKeys3(['z', 'x', 'c', 'v', 'b', 'n', 'm']);
+  }, [])
 
   const receiveSelectedLetter = (receivedKey) => {
     callback(receivedKey);
@@ -31,7 +37,7 @@ const Keyboard = ({ callback, onEnter, onSelectLetter, onDelete }) => {
           onSelectLetter(key);
       }})
     }
-  })
+  }, [keys1, keys2, keys3, onDelete, onSelectLetter, onEnter])
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyboard);
