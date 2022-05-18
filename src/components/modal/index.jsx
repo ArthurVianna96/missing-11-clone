@@ -5,8 +5,8 @@ import './modal.css';
 import Letter from "../letter";
 import Keyboard from "../keyboard";
 
-const PlayerModal = ({ player: { name: playerName, id: playerId }, callback }) => {
-  const { board, setBoard, players, setPlayers } = useContext(AppContext);
+const PlayerModal = ({ player: { name: playerName, id: playerId }, callback, loseGameCallback }) => {
+  const { board, setBoard, players, setPlayers, totalAttempts, setTotalAttempts } = useContext(AppContext);
   const [currentAttempt, setCurrentAttempt] = useState({ attempt: players[playerId].attempts, letterPos: 0 });
   
   const generateWhiteBoard = useCallback((numberOfLetters) => {
@@ -31,6 +31,7 @@ const PlayerModal = ({ player: { name: playerName, id: playerId }, callback }) =
   const onSelectLetter = (selectedLetter) => {
     const { attempt, letterPos } = currentAttempt;
     if (letterPos > playerName.length - 1) return;
+    if (attempt > 5) return;
     const newBoard = [...board];
     newBoard[attempt][letterPos] = selectedLetter;
     setBoard(newBoard);
@@ -51,13 +52,19 @@ const PlayerModal = ({ player: { name: playerName, id: playerId }, callback }) =
     return receivedWord === playerName.split(' ').join('');
   }
 
+  const validateEndGame = (currentAttempt) => {
+    if (currentAttempt > 4) {
+      loseGameCallback();
+    }
+  }
+
   const onEnter = () => {
     const { letterPos, attempt } = currentAttempt;
     if (letterPos !== playerName.split(' ').join('').length) return;
     const receivedWord = board[attempt].join('');
     const guesses = players[playerId].guesses;
-
     setCurrentAttempt(previous => ({ attempt: previous.attempt + 1, letterPos: 0 }));
+    setTotalAttempts(totalAttempts + 1);
 
     let newGuessArray;
     if (!guesses) {
@@ -66,7 +73,9 @@ const PlayerModal = ({ player: { name: playerName, id: playerId }, callback }) =
       const newGuess = [...guesses, receivedWord];
       newGuessArray = newGuess;
     }
-    setPlayers(() => [...players], players[playerId].guesses = newGuessArray, players[playerId].attempts +=1);
+    setPlayers(() => [...players], players[playerId].guesses = newGuessArray, players[playerId].attempts += 1);
+    
+    validateEndGame(attempt);
 
     const isNameCorrect = validateRow();
     if (isNameCorrect) {

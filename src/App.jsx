@@ -4,6 +4,7 @@ import './assets/css/App.css';
 import Header from './components/header';
 import Player from './components/player';
 import PlayerModal from './components/modal';
+import GameOverModal from './components/gameModal';
 import { parseDataForPitch, parseDataForStorage } from './utils/parseData';
 
 export const AppContext = createContext();
@@ -11,10 +12,25 @@ export const AppContext = createContext();
 function App() {
   const [players, setPlayers] = useState([]);
   const [playersArray, setPlayersArray] = useState([]);
-  const [isGameOver, setIsGameOver] = useState(false);
+  const [isGameOver, setIsGameOver] = useState({ gameOver: false, message: '' });
+  const [totalAttempts, setTotalAttempts] = useState(0);
   const [board, setBoard] = useState([[],[],[],[],[],[],[],[],[],[],[],[],[]]);
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const [gameData, setGameData] = useState(null);
+
+  const receiveSelectedPlayer = (player) => {
+    setSelectedPlayer(player);
+  }
+
+  const unselectPlayer = () => {
+    setSelectedPlayer(null);
+  }
+
+  const loseGame = () => {
+    unselectPlayer();
+    const message = `Better luck next time`;
+    setIsGameOver({ gameOver: true, message: message });
+  };
 
   useEffect(() => {
     setGameData({
@@ -42,21 +58,22 @@ function App() {
   }, [gameData]);
 
   useEffect(() => {
-    setIsGameOver(players.every((player) => player.solved));
-  }, [players])
-
-  const receiveSelectedPlayer = (player) => {
-    setSelectedPlayer(player);
-  }
-
-  const unselectPlayer = () => {
-    setSelectedPlayer(null);
-  }
+    if (players.length < 1) return;
+    const didWinTheGame = players.every((player) => player.solved);
+    // const didWinTheGame = true;
+    if (didWinTheGame) { 
+      const message = `Congratulations! you won the game in ${totalAttempts} guesses`;
+      setIsGameOver({ gameOver: true, message: message });
+    } else if (totalAttempts > 11 * 6) {
+      const message = `Better luck next time`;
+      setIsGameOver({ gameOver: true, message: message });
+    }
+  }, [players, totalAttempts]);
   
   return (
     <div className="App">
       <Header />
-      <AppContext.Provider value={{ players, setPlayers, board, setBoard }}>
+      <AppContext.Provider value={{ players, setPlayers, board, setBoard, totalAttempts, setTotalAttempts }}>
         {!selectedPlayer ? (
           <div className='pitch'>
             <div className='players'>
@@ -67,9 +84,12 @@ function App() {
           </div>
           ) :
           (
-            <PlayerModal player={selectedPlayer} callback={unselectPlayer}/>  
+            <PlayerModal player={selectedPlayer} callback={unselectPlayer} loseGameCallback={loseGame}/>  
           )
         }
+        {isGameOver.gameOver && (
+          <GameOverModal message={isGameOver.message} />
+        )}
       </AppContext.Provider>
       
     </div>
