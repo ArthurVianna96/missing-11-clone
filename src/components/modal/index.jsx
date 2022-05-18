@@ -71,6 +71,9 @@ const PlayerModal = ({ player: { name: playerName, id: playerId }, callback }) =
     const isNameCorrect = validateRow();
     if (isNameCorrect) {
       setPlayers(() => [...players], players[playerId].solved = true, players[playerId].attempts = attempt + 1);
+      setTimeout(() => {
+        callback();
+      }, 300);
     } 
   }
 
