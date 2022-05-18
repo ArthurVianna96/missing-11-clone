@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import { AppContext } from '../../App';
+import { AppContext } from '../../pages/GamePage';
 import './letter.css';
 
 const Letter = ({ letterPos, attemptValue, playerName, playerId, currentAttempt }) => {

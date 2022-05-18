@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 
-import { AppContext } from "../../App";
+import { AppContext } from '../../pages/GamePage';
 import './player.css';
 import playerShirt from '../../assets/images/shirt.png';
 

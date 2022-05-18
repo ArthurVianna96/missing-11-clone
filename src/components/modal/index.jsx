@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, useCallback } from "react";
-import { AppContext } from "../../App";
 
+import { AppContext } from '../../pages/GamePage';
 import './modal.css';
 import Letter from "../letter";
 import Keyboard from "../keyboard";

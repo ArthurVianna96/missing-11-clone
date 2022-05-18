@@ -2,10 +2,10 @@ import React from "react";
 
 import './header.css';
 
-const Header = () => {
+const Header = ({ children, style }) => {
   return (
-    <header>
-      <h1>Missing 11</h1>
+    <header style={style}>
+      {children}
     </header>
   );
 }
