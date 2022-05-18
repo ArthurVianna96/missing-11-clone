@@ -3,9 +3,8 @@ import React, { useEffect, useState } from "react";
 import './player.css';
 import playerShirt from '../../assets/images/shirt.png';
 
-const Player = ({ playerName }) => {
+const Player = ({ playerName, callback, playerId, solved }) => {
   const [tries, setTries] = useState(null);
-  const [correctName, setCorrectName] = useState(false);
   const [shownText, setShownText] = useState('');
 
   const transformNameToDots = (name) => {
@@ -16,11 +15,12 @@ const Player = ({ playerName }) => {
   }
 
   useEffect(() => {
-    setShownText(correctName ? playerName : transformNameToDots(playerName));
-  }, [correctName, playerName]);
+    console.log(solved);
+    setShownText(solved ? playerName : transformNameToDots(playerName));
+  }, [solved, playerName]);
 
   return (
-    <div className="player">
+    <div className="player" onClick={() => callback({ id: playerId,  name: playerName })}>
       <div className="shirt-container">
         <img src={playerShirt} alt="player-shirt" className="shirt" />
         <p className="number-of-tries">{ tries ? tries : '?' }</p>

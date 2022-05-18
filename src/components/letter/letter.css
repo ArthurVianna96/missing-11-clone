@@ -1,0 +1,30 @@
+.letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border: 2px solid grey;
+  border-radius: 100%;
+  text-transform: uppercase;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#correct {
+  background-color: green;
+  border: none;
+  color: white;
+}
+
+#wrong {
+  background-color: grey;
+  border: none;
+  color: white;
+}
+
+#almost {
+  background-color: rgb(213, 192, 98);
+  border: none;
+  color: white;
+}

@@ -1,0 +1,18 @@
+.keyboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  max-width: 700px;
+  padding-top: 4rem;
+}
+
+.line1, .line2, .line3 {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
