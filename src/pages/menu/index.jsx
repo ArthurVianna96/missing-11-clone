@@ -15,7 +15,7 @@ const Menu = () => {
       <div className='game-selector'>
         {data.map((game) => (
           <Link to={`game/${game.id}`} className='game-card' key={game.id}>
-            <img className='team-logo' src={game.emblem} alt={game.team} />
+            <img className='team-logo' src={game.emblem} alt={`${game.team} emblem`} />
             <h3>{game.date}</h3>
           </Link>
         ))}

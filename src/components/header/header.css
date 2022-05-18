@@ -2,8 +2,9 @@ header {
   width: 100%;
   min-height: 80px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 25px;
   background-image: linear-gradient(rgba(250, 235, 215, 1), rgba(250, 235, 215, 0));
 }
 
