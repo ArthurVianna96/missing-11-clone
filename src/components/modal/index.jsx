@@ -59,18 +59,18 @@ const PlayerModal = ({ player: { name: playerName, id: playerId }, callback }) =
 
     setCurrentAttempt(previous => ({ attempt: previous.attempt + 1, letterPos: 0 }));
 
-    let newObject;
+    let newGuessArray;
     if (!guesses) {
-      newObject = { id: playerId, name: playerName, guesses: [receivedWord] };
+      newGuessArray = [receivedWord];
     } else {
       const newGuess = [...guesses, receivedWord];
-      newObject = { id: playerId, name: playerName, guesses: newGuess };
+      newGuessArray = newGuess;
     }
-    setPlayers(() => [...players], players[playerId] = newObject);
+    setPlayers(() => [...players], players[playerId].guesses = newGuessArray, players[playerId].attempts +=1);
 
     const isNameCorrect = validateRow();
     if (isNameCorrect) {
-      setPlayers(() => [...players], players[playerId].solved = true, players[playerId].attempts = attempt + 1);
+      setPlayers(() => [...players], players[playerId].solved = true);
       setTimeout(() => {
         callback();
       }, 300);

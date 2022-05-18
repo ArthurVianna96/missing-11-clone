@@ -18,7 +18,8 @@ const Player = ({ playerName, callback, playerId }) => {
 
   useEffect(() => {
     setShownText(players[playerId].solved ? playerName : transformNameToDots(playerName));
-  }, [players, playerName]);
+    setTries(players[playerId].attempts ? players[playerId].attempts : null);
+  }, [players, playerName, playerId]);
 
   return (
     <div className="player" onClick={() => callback({ id: playerId,  name: playerName })}>

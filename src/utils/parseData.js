@@ -15,7 +15,7 @@ const data = {
   ],
 }
 
-const parseData = (data) => {
+const parseDataForPitch = (data) => {
   const { formation, players } = data;
   const formationArray = formation.split('-');
   const playersArray = [];
@@ -29,4 +29,12 @@ const parseData = (data) => {
   return playersArray;
 };
 
-export default parseData;
+const parseDataForStorage = (data) => {
+  const { players } = data;
+  return players.map((player) => ({
+    ...player,
+    attempts: 0,
+  }))
+}
+
+export { parseDataForPitch, parseDataForStorage };

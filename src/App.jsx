@@ -1,10 +1,10 @@
-import { useState, createContext, useEffect } from 'react';
+import { useState, createContext, useEffect, useLayoutEffect } from 'react';
 import './assets/css/App.css';
 
 import Header from './components/header';
 import Player from './components/player';
 import PlayerModal from './components/modal';
-import parseData from './utils/parseData';
+import { parseDataForPitch, parseDataForStorage } from './utils/parseData';
 
 export const AppContext = createContext();
 
@@ -30,8 +30,8 @@ function App() {
   }
 
   useEffect(() => {
-    setPlayersArray(parseData(data));
-    setPlayers(data.players);
+    setPlayersArray(parseDataForPitch(data));
+    setPlayers(parseDataForStorage(data));
   }, []);
 
   const receiveSelectedPlayer = (player) => {
