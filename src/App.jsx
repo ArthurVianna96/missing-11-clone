@@ -34,8 +34,6 @@ function App() {
     setPlayers(data.players);
   }, []);
 
-
-
   const receiveSelectedPlayer = (player) => {
     setSelectedPlayer(player);
   }
