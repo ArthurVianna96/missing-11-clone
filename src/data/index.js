@@ -98,7 +98,7 @@ const data = [
     emblem: require('../assets/images/emblems/liverpool.png'),
     players: [
       { id: 0, name: 'alisson' },
-      { id: 1, name: 'alexander-arnold' },
+      { id: 1, name: 'alexander arnold' },
       { id: 2, name: 'van djik' },
       { id: 3, name: 'matip' },
       { id: 4, name: 'robertson' },
