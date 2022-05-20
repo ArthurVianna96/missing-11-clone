@@ -12,7 +12,7 @@
   align-items: center;
   flex-direction: column;
   gap: 40px;
-  background-color: rgb(224, 223, 223);
+  background-color: rgb(255, 254, 254);
 }
 
 .game-type-menu-page > h1 {
@@ -20,7 +20,7 @@
   margin: 0;
   padding: 40px;
   width: 100%;
-  background-image: linear-gradient(to bottom, rgb(72, 198, 207), rgb(224, 223, 223));
+  background-image: linear-gradient(to bottom, rgb(72, 198, 207), rgb(255, 255, 255));
   text-align: center;
 }
 
@@ -37,7 +37,7 @@
 .game-type-card {
   flex-basis: 300px;
   border-radius: 8px;
-  box-shadow: 0px 5px 10px 2px rgba(94, 93, 93, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(71, 71, 71, 0.3);
   color: white;
   transition: all ease 300ms;
   text-align: center;
@@ -81,7 +81,7 @@
 
 footer {
   padding: 20px;
-  background-image: linear-gradient(to top, rgb(72, 198, 207), rgb(224, 223, 223));
+  background-image: linear-gradient(to top, rgb(72, 198, 207), rgb(255, 255, 255));
   width: 100%;
   text-align: center;
 }
