@@ -7,12 +7,12 @@ import Player from '../../components/player';
 import PlayerModal from '../../components/modal';
 import GameOverModal from '../../components/gameModal';
 import { parseDataForPitch, parseDataForStorage } from '../../utils/parseData';
-import data from '../../data';
+import championsLeagueData from '../../data/champions-league-games';
 
 export const AppContext = createContext();
 
 function GamePage() {
-  const { year, gameId } = useParams();
+  const { type, year, gameId } = useParams();
   const [players, setPlayers] = useState([]);
   const [playersArray, setPlayersArray] = useState([]);
   const [isGameOver, setIsGameOver] = useState({ gameOver: false, message: '' });
@@ -36,7 +36,7 @@ function GamePage() {
   };
 
   const findGameByYearAndId = (year, id) => {
-    const gamesOfYear = data.find((years) => years.year === year);
+    const gamesOfYear = championsLeagueData.find((years) => years.year === year);
     return gamesOfYear.games.find((game) => game.id === id);
   }
 
@@ -54,7 +54,6 @@ function GamePage() {
   useEffect(() => {
     if (players.length < 1) return;
     const didWinTheGame = players.every((player) => player.solved);
-    // const didWinTheGame = true;
     if (didWinTheGame) { 
       const message = `Congratulations! you won the game in ${totalAttempts} guesses`;
       setIsGameOver({ gameOver: true, message: message });
@@ -65,9 +64,9 @@ function GamePage() {
   }, [players, totalAttempts]);
   
   return (
-    <div className="game">
+    <div className={`game ${type}-bg`}>
       <Header>
-        <Link className='game-selector-button' to='/'>Game Selector</Link>
+        <Link className='game-selector-button' to={`/${type}`}>Game Selector</Link>
         <h1>Missing 11</h1>
         <img src={gameData ? gameData.emblem : ''} alt={`${gameData ? gameData.team : 'generic'} emblem`} width='80px'></img>
       </Header>

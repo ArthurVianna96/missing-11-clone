@@ -9,9 +9,20 @@
   flex-direction: column;
 }
 
+.champions-league-bg {
+  background-image: linear-gradient(to right,#04014d, #0e0398, #04014d);
+}
+
+.world-cup-bg {
+  background-image: none;
+  background-color: #d80541;
+}
+
 .audio-control {
   position: fixed;
-  bottom: 20px;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
 }
 

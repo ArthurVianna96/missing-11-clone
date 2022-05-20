@@ -6,11 +6,9 @@
   gap: 20px;
   width: 100%;
   min-height: 100vh;
-  background-image: linear-gradient(to right,#04014d, #0e0398, #04014d);
 }
 
 .game-selector-button {
-  /* text-decoration: none; */
   color: white;
 }
 
