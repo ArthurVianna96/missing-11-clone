@@ -7,7 +7,7 @@ import {
 
 import './assets/css/App.css';
 import GameTypeMenu from './pages/game-type-menu';
-import Menu from './pages/menu';
+import GamesMenu from './pages/games-menu';
 import GamePage from './pages/GamePage';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
     <Router>  
       <div className="App">
         <Routes> 
-          <Route path=":type" exact element={<Menu />} />
+          <Route path=":type" exact element={<GamesMenu />} />
           <Route path=":type/:year/:gameId" element={<GamePage />} />  
           <Route path="/" element={<GameTypeMenu/>}/>   
         </Routes>

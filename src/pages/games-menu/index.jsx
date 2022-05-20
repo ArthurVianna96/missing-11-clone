@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from 'react-router-dom';
 
-import './menu.css';
+import './games-menu.css';
 import Header from '../../components/header';
 import championsLeagueData from "../../data/champions-league-games";
 import worldCupData from "../../data/world-cup-data";
 
-const Menu = () => {
+const GamesMenu = () => {
   const { type } = useParams();
   const [gameTypeData, setGameTypeData] = useState([]);
 
@@ -50,4 +50,4 @@ const Menu = () => {
   )
 }
 
-export default Menu;
+export default GamesMenu;
