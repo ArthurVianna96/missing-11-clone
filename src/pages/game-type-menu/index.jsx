@@ -18,6 +18,7 @@ const GameTypeMenu = () => {
           <h4>World Cup Finals</h4>
         </Link>
       </div>
+      <footer>Developed By Arthur Vianna</footer>
     </div>
   )
 }

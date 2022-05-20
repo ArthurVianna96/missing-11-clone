@@ -27,9 +27,9 @@ const GamesMenu = () => {
         </audio>
       }
       <Header>
-        <Link to='/' style={{flexGrow: 1, color: "white"}}>Game Type Selector</Link>
-        <h1 style={{flexGrow: 6, textAlign: 'center'}}>Missing 11</h1>
-        <div style={{flexGrow: 1, textTransform: 'capitalize'}}>{type.split('-').join(' ')}</div>
+        <Link to='/' style={{color: "white"}}>Game Type Selector</Link>
+        <h1 style={{textAlign: 'center'}}>Missing 11</h1>
+        <div style={{textTransform: 'capitalize'}}>{type.split('-').join(' ')}</div>
       </Header>
       <h2 style={{color: "white"}}>Select a Champions League Final game</h2>
       <div className='game-selector'>
