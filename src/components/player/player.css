@@ -64,7 +64,7 @@
   .player-name-length {
     transform: translate(-1px, 30px);
     width: 30px;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
   }
   
   .player-name {

@@ -12,7 +12,7 @@ import data from '../../data';
 export const AppContext = createContext();
 
 function GamePage() {
-  const { gameId } = useParams();
+  const { year, gameId } = useParams();
   const [players, setPlayers] = useState([]);
   const [playersArray, setPlayersArray] = useState([]);
   const [isGameOver, setIsGameOver] = useState({ gameOver: false, message: '' });
@@ -35,13 +35,14 @@ function GamePage() {
     setIsGameOver({ gameOver: true, message: message });
   };
 
-  const findGameWithId = (id) => {
-    return data.find((game) => game.id === id);
+  const findGameByYearAndId = (year, id) => {
+    const gamesOfYear = data.find((years) => years.year === year);
+    return gamesOfYear.games.find((game) => game.id === id);
   }
 
   useEffect(() => {
-    setGameData(findGameWithId(parseInt(gameId)))
-  }, [gameId]);
+    setGameData(findGameByYearAndId(parseInt(year), parseInt(gameId)))
+  }, [year, gameId]);
 
   useEffect(() => {
     if (gameData) {
@@ -66,7 +67,7 @@ function GamePage() {
   return (
     <div className="game">
       <Header>
-        <Link to='/'>Game Selector</Link>
+        <Link className='game-selector-button' to='/'>Game Selector</Link>
         <h1>Missing 11</h1>
         <img src={gameData ? gameData.emblem : ''} alt={`${gameData ? gameData.team : 'generic'} emblem`} width='80px'></img>
       </Header>

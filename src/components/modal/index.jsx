@@ -116,7 +116,7 @@ const PlayerModal = ({ player: { name: playerName, id: playerId }, callback, los
 
   return (
     <div className="modal">
-      <button onClick={callback}>Voltar</button>
+      <button className="go-back" onClick={callback}>Voltar</button>
       <div className='attempts'>
         <div className="attempt-row">
           {letterFunc(0)}

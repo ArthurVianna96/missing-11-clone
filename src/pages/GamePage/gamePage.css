@@ -1,9 +1,17 @@
 .game {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  gap: 20px;
   width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(to right,#04014d, #0e0398, #04014d);
+}
+
+.game-selector-button {
+  /* text-decoration: none; */
+  color: white;
 }
 
 .pitch {
@@ -12,26 +20,29 @@
   background-size: auto 100%;
   background-position-x: 50%;
   background-position-y: 50%;
-  height: calc(100vh - 80px);
+  min-height: calc(100vh - 100px);
   width: 100%;
   flex-grow: 1;
   flex-shrink: 1;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  padding-top: 20px;
 }
 
 .players {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   max-width: 900px;
   width: 100%;
-  height: 90%;
+  min-height: calc(100vh - 120px);
 }
 
 .players-row {
+  flex-grow: 1;
   display: flex;
   align-items:  flex-start;
   justify-content: space-between;

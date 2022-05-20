@@ -6,6 +6,19 @@
   max-width: 900px;
   width: 100%;
 }
+
+.go-back {
+  text-decoration: underline;
+  color: white;
+  background-color: unset;
+  border: none;
+  font-size: 1.1em;
+}
+
+.go-back:hover {
+  cursor: pointer;
+}
+
 .attempts {
   display: flex;
   justify-content: center;

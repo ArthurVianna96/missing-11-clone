@@ -1,11 +1,54 @@
+.menu-page {
+  min-width: 100%;
+  min-height: 100%;
+  background-image: linear-gradient(to right,#04014d, #0e0398, #04014d);
+  display: flex;
+  padding-bottom: 100px;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.audio-control {
+  position: fixed;
+  bottom: 20px;
+  z-index: 2;
+}
+
 .game-selector {
+  z-index: 1;
   display: flex;
   flex-wrap:wrap;
-  gap: 10px;
+  gap: 20px;
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 900px;
+  max-width: 1500px;
+}
+
+.year-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  flex-basis: 400px;
+  padding: 20px;
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom right, rgba(88, 88, 88, 0.568),  rgba(250, 250, 250, 0.363));
+}
+
+.year {
+  margin: 0;
+  color: white;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
 }
 
 .game-card {
@@ -16,7 +59,7 @@
   flex-direction: column;
   gap: 8px;
   padding: 10px;
-  background-color: #cdcdcd;
+  background-color: #cdcdcd2f;
   border-radius: 3px;
   box-shadow: 0px 8px 20px 2px rgba(0, 0, 0, 0.096);
   transition: opacity ease 300ms;
