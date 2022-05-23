@@ -2,7 +2,6 @@ import { useState, createContext, useEffect, useCallback } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './gamePage.css';
 
-import Header from '../../components/header';
 import Player from '../../components/player';
 import PlayerModal from '../../components/modal';
 import GameOverModal from '../../components/gameModal';
@@ -102,11 +101,11 @@ function GamePage() {
   
   return (
     <div className={`game ${type}-bg`}>
-      <Header>
+      <header>
         <Link className='game-selector-button' to={`/${type}`}>Game Selector</Link>
         <h1>Missing 11</h1>
         <img src={gameData ? gameData.emblem : ''} alt={`${gameData ? gameData.team : 'generic'} emblem`} width='80px'></img>
-      </Header>
+      </header>
       <AppContext.Provider value={{ players, setPlayers, board, setBoard, totalAttempts, setTotalAttempts }}>
         {!selectedPlayer ? (
           <div className='pitch'>

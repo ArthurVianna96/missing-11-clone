@@ -8,6 +8,18 @@
   min-height: 100vh;
 }
 
+header {
+  width: 100%;
+  min-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 20px;
+  color: white;
+  text-align: center;
+}
+
 .game-selector-button {
   color: white;
 }
@@ -51,4 +63,29 @@
   .players {
     padding: 0 20px;
   }
+}
+
+@media screen and (max-width: 500px) {
+  header {
+    padding-bottom: 20px;
+  }
+
+  header img {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    width: 40px;
+
+  }
+
+  header h1 {
+    order: -1;
+    font-size: 1.6rem;
+    width: 100%;
+  }
+
+  header a {
+    width: 100%;
+  }
+
 }
