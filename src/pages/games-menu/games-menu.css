@@ -71,7 +71,7 @@
 }
 
 .game-card {
-  flex-basis: 200px;
+  flex-basis: 170px;
   display: flex;
   justify-content: center;
   align-items: center;
