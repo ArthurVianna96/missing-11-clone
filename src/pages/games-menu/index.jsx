@@ -18,11 +18,11 @@ const GamesMenu = () => {
   return (
     <div className={`menu-page ${type}-bg`}>
       {type === 'world-cup' ?
-        <audio className='audio-control' controls autoPlay >
+        <audio className='audio-control' controls autoPlay muted>
           <source src={require('../../assets/audio/waka-waka.mp3')} type="audio/mpeg" />
         </audio>
         :
-        <audio className='audio-control' controls autoPlay >
+        <audio className='audio-control' controls autoPlay muted>
           <source src={require('../../assets/audio/champions-theme.mp3')} type="audio/mpeg" />
         </audio>
       }
@@ -31,7 +31,7 @@ const GamesMenu = () => {
         <h1 style={{textAlign: 'center'}}>Missing 11</h1>
         <div style={{textTransform: 'capitalize'}}>{type.split('-').join(' ')}</div>
       </Header>
-      <h2 style={{color: "white"}}>Select a Champions League Final game</h2>
+      <h2 style={{color: "white"}}>Select a {type.split('-').join(' ')} final game</h2>
       <div className='game-selector'>
         {gameTypeData.map(({ games, year }) => (
           <div className="year-container" key={year}>

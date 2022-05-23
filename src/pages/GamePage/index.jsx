@@ -8,6 +8,7 @@ import PlayerModal from '../../components/modal';
 import GameOverModal from '../../components/gameModal';
 import { parseDataForPitch, parseDataForStorage } from '../../utils/parseData';
 import championsLeagueData from '../../data/champions-league-games';
+import worldCupData from '../../data/world-cup-data';
 
 export const AppContext = createContext();
 
@@ -35,14 +36,18 @@ function GamePage() {
     setIsGameOver({ gameOver: true, message: message });
   };
 
-  const findGameByYearAndId = (year, id) => {
-    const gamesOfYear = championsLeagueData.find((years) => years.year === year);
+  const findGameByYearAndId = (gameType, year, id) => {
+    const gamesOfYear = gameType.find((years) => years.year === year);
     return gamesOfYear.games.find((game) => game.id === id);
   }
 
   useEffect(() => {
-    setGameData(findGameByYearAndId(parseInt(year), parseInt(gameId)))
-  }, [year, gameId]);
+    if (type === 'world-cup') {
+      setGameData(findGameByYearAndId(worldCupData, parseInt(year), parseInt(gameId)))
+    } else {
+      setGameData(findGameByYearAndId(championsLeagueData, parseInt(year), parseInt(gameId)))
+    }
+  }, [type, year, gameId]);
 
   useEffect(() => {
     if (gameData) {

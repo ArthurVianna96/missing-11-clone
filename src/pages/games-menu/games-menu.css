@@ -1,6 +1,6 @@
 .menu-page {
   min-width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
   background-image: linear-gradient(to right,#04014d, #0e0398, #04014d);
   display: flex;
   padding-bottom: 100px;
@@ -27,14 +27,15 @@
 }
 
 .game-selector {
+  padding: 20px;
   z-index: 1;
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 1500px;
+  max-width: 1300px;
 }
 
 .year-container {
