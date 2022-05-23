@@ -9,6 +9,7 @@ import GameOverModal from '../../components/gameModal';
 import { parseDataForPitch, parseDataForStorage } from '../../utils/parseData';
 import championsLeagueData from '../../data/champions-league-games';
 import worldCupData from '../../data/world-cup-data';
+import { useLocalStorage } from '../../hooks/localStorage';
 
 export const AppContext = createContext();
 
@@ -21,6 +22,9 @@ function GamePage() {
   const [board, setBoard] = useState([[],[],[],[],[],[],[],[],[],[],[],[],[]]);
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const [gameData, setGameData] = useState(null);
+
+  const [, setChampionsLeagueGames] = useLocalStorage('championsLeague', []);
+  const [, setWorldCupGames] = useLocalStorage('worldCup', []);
 
   const receiveSelectedPlayer = (player) => {
     setSelectedPlayer(player);
@@ -57,16 +61,39 @@ function GamePage() {
   }, [gameData]);
 
   useEffect(() => {
+    async function markCompletedGame() {
+      if (type === 'world-cup') {
+        await setWorldCupGames(previousGames => ([
+          ...previousGames,
+          {
+            id: gameId,
+            completed: true,
+            attempts: totalAttempts
+          },
+        ]))
+      } else {
+        await setChampionsLeagueGames(previousGames => ([
+          ...previousGames,
+          {
+            id: gameId,
+            completed: true,
+            attempts: totalAttempts
+          },
+        ]))
+      }
+    };
     if (players.length < 1) return;
     const didWinTheGame = players.every((player) => player.solved);
-    if (didWinTheGame) { 
+    // const didWinTheGame = true;
+    if (didWinTheGame) {
       const message = `Congratulations! you won the game in ${totalAttempts} guesses`;
       setIsGameOver({ gameOver: true, message: message });
+      markCompletedGame();
     } else if (totalAttempts > 11 * 6) {
       const message = `Better luck next time`;
       setIsGameOver({ gameOver: true, message: message });
     }
-  }, [players, totalAttempts]);
+  }, [players, totalAttempts, gameId, type, setWorldCupGames, setChampionsLeagueGames]);
   
   return (
     <div className={`game ${type}-bg`}>

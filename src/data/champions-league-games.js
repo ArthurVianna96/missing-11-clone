@@ -70,7 +70,7 @@ const championsLeagueData = [
     year: 2020,
     games: [
       {
-        id: 1,
+        id: 3,
         team: 'Bayern Munich',
         description: "Bayern Munich's 1-0 win against PSG",
         stadium: "Estádio da Luz - Lisbon (POR)",
@@ -92,7 +92,7 @@ const championsLeagueData = [
         ],
       },
       {
-        id: 2,
+        id: 4,
         team: 'PSG',
         description: "PSG's 0-1 loss against Bayern Munich",
         stadium: "Estádio da Luz - Lisbon (POR)",
@@ -119,7 +119,7 @@ const championsLeagueData = [
     year: 2019,
     games: [
       {
-        id: 1,
+        id: 5,
         team: 'Liverpool',
         description: "Liverpool's 2-0 win against Tottenham",
         stadium: "Wanda Metropolitano - Madrid (ESP)",
@@ -141,7 +141,7 @@ const championsLeagueData = [
           ],
       },
       {
-        id: 2,
+        id: 6,
         team: 'Tottenham',
         description: "Tottenham's 0-2 loss against Liverpool",
         stadium: "Wanda Metropolitano - Madrid (ESP)",
@@ -168,7 +168,7 @@ const championsLeagueData = [
     year: 2018,
     games: [
       {
-        id: 1,
+        id: 7,
         team: 'Real Madrid',
         description: "Real Madrid's 3-1 win against Liverpool",
         stadium: "Olimpiyskiy Stadium - Keiv (RUS)",
@@ -190,7 +190,7 @@ const championsLeagueData = [
         ],
       },
       {
-        id: 2,
+        id: 8,
         team: 'Liverpool',
         description: "Liverpool's 1-3 loss against Real Madrid",
         stadium: "Olimpiyskiy Stadium - Keiv (RUS)",
@@ -217,7 +217,7 @@ const championsLeagueData = [
     year: 2017,
     games: [
       {
-        id: 1,
+        id: 9,
         team: 'Real Madrid',
         description: "Real Madrid's 4-1 win against Juventus",
         stadium: "Millennium Stadium - Cardiff (WAL)",
@@ -239,7 +239,7 @@ const championsLeagueData = [
         ],
       },
       {
-        id: 2,
+        id: 10,
         team: 'Juventus',
         description: "Juventus's 1-4 loss against Real Madrid",
         stadium: "Millennium Stadium - Cardiff (WAL)",
@@ -266,7 +266,7 @@ const championsLeagueData = [
     year: 2016,
     games: [
       {
-        id: 1,
+        id: 11,
         team: 'Real Madrid',
         description: "Real Madrid's 3-1 win against Atletico Madrid",
         stadium: "San Siro - Milan (ITA)",
@@ -288,7 +288,7 @@ const championsLeagueData = [
         ],
       },
       {
-        id: 2,
+        id: 12,
         team: 'Atletico Madrid',
         description: "Atletico Madrid's 1-1 (pen. 5-3) win against Real Madrid",
         stadium: "San Siro - Milan (ITA)",
@@ -315,7 +315,7 @@ const championsLeagueData = [
     year: 2015,
     games: [
       {
-        id: 1,
+        id: 13,
         team: 'Barcelona',
         description: "Barcelona's 3-1 win against Juventus",
         stadium: "Olympiastadion - Berlim (GER)",
@@ -337,7 +337,7 @@ const championsLeagueData = [
         ],
       },
       {
-        id: 2,
+        id: 14,
         team: 'Juventus',
         description: "Juventus's 1-3 loss against Barcelona",
         stadium: "Olympiastadion - Berlim (GER)",
@@ -364,7 +364,7 @@ const championsLeagueData = [
     year: 2014,
     games: [
       {
-        id: 1,
+        id: 15,
         team: 'Real Madrid',
         description: "Real Madrid's 4-1 win against Atletico Madrid",
         stadium: "Estádio da Luz - Lison (POR)",
@@ -386,7 +386,7 @@ const championsLeagueData = [
         ],
       },
       {
-        id: 2,
+        id: 16,
         team: 'Atletico Madrid',
         description: "Atletico Madrid's 1-4 loss against Real Madrid",
         stadium: "Estádio da Luz - Lison (POR)",
@@ -413,7 +413,7 @@ const championsLeagueData = [
     year: 2013,
     games: [
       {
-        id: 1,
+        id: 17,
         team: 'Bayern Munich',
         description: "Bayern Munich's 4-1 win against Borussia Dortmund",
         stadium: "Wembley Stadium - London (ENG)",
@@ -435,7 +435,7 @@ const championsLeagueData = [
         ],
       },
       {
-        id: 2,
+        id: 18,
         team: 'Borussia Dortmund',
         description: "Borussia Dortmund's 1-4 loss against Bayern Munich",
         stadium: "Wembley Stadium - London (ENG)",
@@ -462,7 +462,7 @@ const championsLeagueData = [
     year: 2012,
     games: [
       {
-        id: 1,
+        id: 19,
         team: 'Chelsea',
         description: "Chelsea's 1-1 (pen. 4-3) win against Bayern Munich",
         stadium: "Allianz Arena - Munich (GER)",
@@ -484,7 +484,7 @@ const championsLeagueData = [
         ],
       },
       {
-        id: 2,
+        id: 20,
         team: 'Bayern Munich',
         description: "Bayern Munich's 1-1 (pen. 3-4) loss against Chelsea",
         stadium: "Allianz Arena - Munich (GER)",
@@ -511,7 +511,7 @@ const championsLeagueData = [
     year: 2011,
     games: [
       {
-        id: 1,
+        id: 21,
         team: 'Barcelona',
         description: "Barcelona's 3-1 win against Manchester United",
         stadium: "Wembley Stadium - London (ENG)",
@@ -533,7 +533,7 @@ const championsLeagueData = [
         ],
       },
       {
-        id: 2,
+        id: 22,
         team: 'Manchester United',
         description: "Manchester United's 1-3 loss against Barcelona",
         stadium: "Wembley Stadium - London (ENG)",
@@ -560,7 +560,7 @@ const championsLeagueData = [
     year: 2010,
     games: [
       {
-        id: 1,
+        id: 23,
         team: 'Internazionale Milan',
         description: "Internazionale Milan's 2-0 win against Bayern Munich",
         stadium: "Santiago Bernabéu - Madrid (ESP)",
@@ -582,7 +582,7 @@ const championsLeagueData = [
         ],
       },
       {
-        id: 2,
+        id: 24,
         team: 'Bayern Munich',
         description: "Bayern Munich's 0-2 loss against Internazionale Milan",
         stadium: "Santiago Bernabéu - Madrid (ESP)",

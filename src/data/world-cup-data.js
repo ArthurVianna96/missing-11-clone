@@ -61,7 +61,7 @@ const worldCupData = [
     year: 2014,
     games: [
       {
-        id: 1,
+        id: 3,
         team: 'Germany',
         description: "Germany's 1-0 win against Argentina",
         stadium: "Maracanã - Rio de Janeiro (BRA)",
@@ -83,7 +83,7 @@ const worldCupData = [
         ],
       },
       {
-        id: 2,
+        id: 4,
         team: 'Argentina',
         description: "Argentina's 0-1 loss against Germany",
         stadium: "Maracanã - Rio de Janeiro (BRA)",
@@ -110,7 +110,7 @@ const worldCupData = [
     year: 2010,
     games: [
       {
-        id: 1,
+        id: 5,
         team: 'Spain',
         description: "Spain's 1-0 win against Netherlands",
         stadium: "Soccer City - Johannesburg (RSA)",
@@ -132,7 +132,7 @@ const worldCupData = [
         ],
       },
       {
-        id: 2,
+        id: 6,
         team: 'Netherlands',
         description: "Netherlands's 0-1 loss against Spain",
         stadium: "Soccer City - Johannesburg (RSA)",
@@ -159,7 +159,7 @@ const worldCupData = [
     year: 2006,
     games: [
       {
-        id: 1,
+        id: 7,
         team: 'Italy',
         description: "Italy's 1-1 (pen. 5-3) win against france",
         stadium: "Olympiastadion - Berlim (GER)",
@@ -181,7 +181,7 @@ const worldCupData = [
         ],
       },
       {
-        id: 2,
+        id: 8,
         team: 'france',
         description: "france's 1-1 (pen. 3-5) loss against Italy",
         stadium: "Olympiastadion - Berlim (GER)",
@@ -208,7 +208,7 @@ const worldCupData = [
     year: 2002,
     games: [
       {
-        id: 1,
+        id: 9,
         team: 'Brazil',
         description: "Brazil's 2-0 win against Germany",
         stadium: "International Stadium - Yokohama (JAP)",
@@ -230,7 +230,7 @@ const worldCupData = [
         ],
       },
       {
-        id: 2,
+        id: 10,
         team: 'Germany',
         description: "Germany's 0-2 loss against Brazil",
         stadium: "International Stadium - Yokohama (JAP)",
@@ -257,7 +257,7 @@ const worldCupData = [
     year: 1998,
     games: [
       {
-        id: 1,
+        id: 11,
         team: 'France',
         description: "France's 3-0 win against Brazil",
         stadium: "Stade de France - Paris (FRA)",
@@ -279,7 +279,7 @@ const worldCupData = [
         ],
       },
       {
-        id: 2,
+        id: 12,
         team: 'Brazil',
         description: "Brazil's 0-3 loss against France",
         stadium: "Stade de France - Paris (FRA)",

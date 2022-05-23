@@ -5,15 +5,21 @@ import './games-menu.css';
 import Header from '../../components/header';
 import championsLeagueData from "../../data/champions-league-games";
 import worldCupData from "../../data/world-cup-data";
+import { useLocalStorage } from "../../hooks/localStorage";
 
 const GamesMenu = () => {
   const { type } = useParams();
   const [gameTypeData, setGameTypeData] = useState([]);
+  const [championsLeagueGames] = useLocalStorage('championsLeague', []);
+  const [worldCupGames] = useLocalStorage('worldCup', []);
+  const [markedGames, setMarkedGames] = useState([]);
 
   useEffect(() => {
     const selectedGameType = type === 'world-cup' ? worldCupData : championsLeagueData;
+    const selectedMarkedGames = type === 'world-cup' ? worldCupGames : championsLeagueGames;
     setGameTypeData(selectedGameType);
-  }, [type]);
+    setMarkedGames(selectedMarkedGames);
+  }, [type, worldCupGames, championsLeagueGames]);
 
   return (
     <div className={`menu-page ${type}-bg`}>
@@ -39,6 +45,7 @@ const GamesMenu = () => {
             <div className="game-container">
               {games.map((game) =>
                 <Link to={`${year}/${game.id}`} className='game-card' key={game.id}>
+                  {markedGames.some(({ id }) => id ===`${game.id}`) && <div className="marked">✔</div>}
                   <img className='team-logo' src={game.emblem} alt={`${game.team} emblem`} />
                 </Link>
               )}
