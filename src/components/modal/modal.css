@@ -5,6 +5,7 @@
   flex-direction: column;
   max-width: 900px;
   width: 100%;
+  padding: 0 20px 20px;
 }
 
 .go-back {
@@ -29,10 +30,12 @@
 }
 
 .attempt-row {
+  width: 100%;
   flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   max-width: 800px;
   gap: 0.4rem;
   padding: 0.3rem;

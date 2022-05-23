@@ -37,7 +37,7 @@ const GamesMenu = () => {
         <h1 style={{textAlign: 'center'}}>Missing 11</h1>
         <div style={{textTransform: 'capitalize'}}>{type.split('-').join(' ')}</div>
       </Header>
-      <h2 style={{color: "white"}}>Select a {type.split('-').join(' ')} final game</h2>
+      <h2 className="subtitle">Select a {type.split('-').join(' ')} final game</h2>
       <div className='game-selector'>
         {gameTypeData.map(({ games, year }) => (
           <div className="year-container" key={year}>

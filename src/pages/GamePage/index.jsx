@@ -1,4 +1,4 @@
-import { useState, createContext, useEffect } from 'react';
+import { useState, createContext, useEffect, useCallback } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './gamePage.css';
 
@@ -23,8 +23,8 @@ function GamePage() {
   const [selectedPlayer, setSelectedPlayer] = useState(null);
   const [gameData, setGameData] = useState(null);
 
-  const [, setChampionsLeagueGames] = useLocalStorage('championsLeague', []);
-  const [, setWorldCupGames] = useLocalStorage('worldCup', []);
+  const [championsLeagueGames, setChampionsLeagueGames] = useLocalStorage('championsLeague', []);
+  const [worldCupGames, setWorldCupGames] = useLocalStorage('worldCup', []);
 
   const receiveSelectedPlayer = (player) => {
     setSelectedPlayer(player);
@@ -45,6 +45,32 @@ function GamePage() {
     return gamesOfYear.games.find((game) => game.id === id);
   }
 
+  const markCompletedGame = useCallback(() => {
+    if (type === 'world-cup') {
+      const wasGameAlreadyBeaten = worldCupGames.find(({ id }) => id === gameId);
+      if (wasGameAlreadyBeaten) return;
+      setWorldCupGames(previousGames => ([
+        ...previousGames,
+        {
+          id: gameId,
+          completed: true,
+          attempts: totalAttempts
+        },
+      ]))
+    } else {
+      const wasGameAlreadyBeaten = championsLeagueGames.find(({ id }) => id === gameId);
+      if (wasGameAlreadyBeaten) return;
+      setChampionsLeagueGames(previousGames => ([
+        ...previousGames,
+        {
+          id: gameId,
+          completed: true,
+          attempts: totalAttempts
+        },
+      ]))
+    }
+  }, [gameId, type, setChampionsLeagueGames, setWorldCupGames, championsLeagueGames, worldCupGames, totalAttempts]);
+
   useEffect(() => {
     if (type === 'world-cup') {
       setGameData(findGameByYearAndId(worldCupData, parseInt(year), parseInt(gameId)))
@@ -61,27 +87,6 @@ function GamePage() {
   }, [gameData]);
 
   useEffect(() => {
-    async function markCompletedGame() {
-      if (type === 'world-cup') {
-        await setWorldCupGames(previousGames => ([
-          ...previousGames,
-          {
-            id: gameId,
-            completed: true,
-            attempts: totalAttempts
-          },
-        ]))
-      } else {
-        await setChampionsLeagueGames(previousGames => ([
-          ...previousGames,
-          {
-            id: gameId,
-            completed: true,
-            attempts: totalAttempts
-          },
-        ]))
-      }
-    };
     if (players.length < 1) return;
     const didWinTheGame = players.every((player) => player.solved);
     // const didWinTheGame = true;
@@ -93,7 +98,7 @@ function GamePage() {
       const message = `Better luck next time`;
       setIsGameOver({ gameOver: true, message: message });
     }
-  }, [players, totalAttempts, gameId, type, setWorldCupGames, setChampionsLeagueGames]);
+  }, [players, totalAttempts, markCompletedGame]);
   
   return (
     <div className={`game ${type}-bg`}>

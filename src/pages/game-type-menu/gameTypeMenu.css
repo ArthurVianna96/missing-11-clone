@@ -20,14 +20,24 @@
   margin: 0;
   padding: 40px;
   width: 100%;
-  background-image: linear-gradient(to bottom, rgb(72, 198, 207), rgb(255, 255, 255));
+  background-image: linear-gradient(to bottom, rgb(175, 177, 177), rgb(255, 255, 255));
   text-align: center;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+  flex-grow: 1;
 }
 
 .game-types-container {
   padding-top: 100px;
-  flex-grow: 1;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
   gap: 40px;
@@ -79,9 +89,44 @@
   background-repeat: no-repeat;
 }
 
+h2, h3 {
+  margin: 0;
+  padding: 10px;
+  font-weight: normal;
+}
+
+.score-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+}
+
 footer {
   padding: 20px;
-  background-image: linear-gradient(to top, rgb(72, 198, 207), rgb(255, 255, 255));
+  background-image: linear-gradient(to top, rgb(175, 177, 177), rgb(255, 255, 255));
   width: 100%;
   text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .game-type-menu-page {
+    gap: 10px;
+  }
+
+  .game-type-menu-page > h1  {
+    font-size: 2.5rem;
+    padding: 20px;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .game-types-container {
+    padding-top: 0;
+  }
+  
 }
